@@ -1,0 +1,176 @@
+:root {
+    --primary-color: #bb8deb;
+    --secondary-color: #2575fc;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    width: 400px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.login-section, .chat-section {
+    padding: 20px;
+}
+
+.login-section input, .message-input input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-section button, .message-input button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.login-section button:hover, .message-input button:hover {
+    transform: scale(1.05);
+}
+
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;  /* Enable vertical scrolling */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;  /* Fixed max height */
+    scrollbar-width: thin;  /* For Firefox */
+    scrollbar-color: var(--primary-color) #f1f1f1;  /* For Firefox */
+}
+
+/* Webkit (Chrome, Safari) scrollbar styling */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+}
+
+.message {
+    max-width: 70%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    clear: both;
+    word-wrap: break-word;  /* Ensure long words don't overflow */
+}
+
+.message.sent {
+    align-self: flex-end;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    margin-left: auto;
+}
+
+.message.received {
+    align-self: flex-start;
+    background-color: #f1f0f0;
+    color: black;
+}
+
+.message.system {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+    animation: slideIn 0.3s ease;
+}
+/* Add these to your existing styles.css */
+.file-message .file-content {
+    margin-top: 10px;
+}
+
+.file-preview {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.input-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-actions button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.input-actions button:hover {
+    transform: scale(1.2);
+}
+
+#fileUploadBtn {
+    background: none;
+    border: none;
+}
